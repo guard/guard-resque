@@ -84,7 +84,7 @@ module Guard
     private
 
     def cmd
-      command = ['bundle exec rake', @options[:task].to_s]
+      command = ['bundle exec rake', 'environment', @options[:task].to_s]
 
       # trace setting
       command << '--trace' if @options[:trace]
@@ -98,7 +98,7 @@ module Guard
       var['INTERVAL']  = @options[:interval].to_s    if @options[:interval]
       var['QUEUE']     = @options[:queue].to_s       if @options[:queue]
       var['COUNT']     = @options[:count].to_s       if @options[:count]
-      var['RAILS_ENV'] = @options[:environment].to_s if @options[:environment]
+      # var['RAILS_ENV'] = @options[:environment].to_s if @options[:environment]
 
       var['VERBOSE']  = '1' if @options[:verbose]
       var['VVERBOSE'] = '1' if @options[:vverbose]
